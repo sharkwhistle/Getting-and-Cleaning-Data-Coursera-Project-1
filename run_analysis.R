@@ -44,7 +44,6 @@ test <- cbind(testSub,testAct,test)
 # Merge data and rename columns, incl. actLabels
 mergeData <- rbind(train,test)
 colnames(mergeData) <- c('Subject','Activity',desFeat.names)
-head(mergeData)
 
 # Factorize subject and activity data
 mergeData$Subject <- factor(mergeData$Subject)
@@ -56,5 +55,4 @@ mergeDataMeans <- mergeData %>%
         summarise_each(funs(mean))
 
 # Write mergeDataMenas to tidy.txt
-write.table(mergeDataMeans, 'tidy.txt', row.names = FALSE, quote = FALSE)
-read.table('tidy.txt')
+write.table(mergeDataMeans, 'tidy.txt', row.names = FALSE)
